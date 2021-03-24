@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.device.dao.DeviceMapper">
+  <resultMap id="BaseResultMap" type="com.hc.device.entity.asset.dos.DeviceDO">
+    <!--@mbg.generated-->
+    <!--@Table t_device-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="INTEGER" property="uuid" />
+    <result column="parent" jdbcType="INTEGER" property="parent" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="catalog" jdbcType="SMALLINT" property="catalog" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="caption" jdbcType="VARCHAR" property="caption" />
+    <result column="enabled" jdbcType="TINYINT" property="enabled" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="removed" jdbcType="TINYINT" property="removed" />
+    <result column="show_in_client" jdbcType="TINYINT" property="showInClient" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, uuid, parent, `type`, `catalog`, `name`, caption, enabled, `state`, removed, 
+    show_in_client, create_time, update_time
+  </sql>
+</mapper>

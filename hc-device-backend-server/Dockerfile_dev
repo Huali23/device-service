@@ -1,0 +1,16 @@
+FROM registry.cn-huhehaote.aliyuncs.com/shui12366/centos-jdk8
+
+ENV APP_NAME hc-device-backend-server
+RUN adduser -create-home --no-log-init --shell /bin/bash admin
+USER admin
+RUN echo "java -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms1024m -Xmx1024m -Xmn256m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC -jar /home/admin/$APP_NAME/$APP_NAME.jar --spring.profiles.active=dev">>/home/admin/start.sh
+RUN chmod +x /home/admin/start.sh
+RUN mkdir -p /home/admin/logs/
+RUN chmod -R 777 /home/admin/logs/
+# copy 程序代码到容器的/src 下
+ADD target/$APP_NAME.jar /home/admin/$APP_NAME/$APP_NAME.jar
+VOLUME /home/admin/logs/ /home/admin/logs/
+
+WORKDIR /home/admin/
+
+CMD ["sh","/home/admin/start.sh"]

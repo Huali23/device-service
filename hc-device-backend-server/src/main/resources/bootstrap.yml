@@ -1,0 +1,14 @@
+spring:
+  main.allow-bean-definition-overriding: true
+  application:
+    name: device-backend-server
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: ${NACOS_URL:nacos.cloud.hchliot.com:80}
+        username: ${NACOS_USER:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+        namespace: ${spring.profiles.active}
